@@ -1,7 +1,6 @@
 # Omnibus Care Plan Edge Server(OCP-EDGE-SERVER) Service 
 
-The OCP-EDGE-SERVER Service is a Spring Boot project that registers OCP related micro services and discovers them with Spring Cloud and Netflix's Eureka Services.
-
+The OCP-EDGE-SERVER Service acts as a Gate Keeper to the Outside world for OCP applications.It keeps unauthorized external requests from passing through. It uses Spring Cloud Zuul as a routing framework, which serves as an entry point to the OCP applications landscape. Zuul uses Spring Cloud Ribbon to lookup available services, and routes the external request to an appropriate service instance, facilitating Dynamic Routing and Load Balancing.
 
 ## Build
 
