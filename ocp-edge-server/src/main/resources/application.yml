@@ -20,8 +20,6 @@ ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 990000
 zuul:
-  host:
-    connect-timeout-millis: 60000
   ignoredServices: '*'
   routes:
     ocp-ui-api:
