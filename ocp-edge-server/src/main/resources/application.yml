@@ -19,6 +19,11 @@ hystrix.command.default.execution.timeout.enabled: false
 ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 990000
+# propagate application status to Eureka
+eureka:
+  client:
+    healthcheck:
+      enabled: true
 zuul:
   ignoredServices: '*'
   routes:
@@ -29,4 +34,4 @@ zuul:
     ocp-ui:
       path: /ocp-ui/**
       sensitiveHeaders: ''
-      url: http://localhost:3000/ocp-ui/
+      url: http://localhost:3000/
