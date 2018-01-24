@@ -1,0 +1,37 @@
+server:
+  port: 80
+logging:
+  file: /java/OCP_LOGS/ocp-edge-server/ocp-edge-server.log
+info:
+  component: OCP Edge Server
+response:
+  header:
+    key: WWW-Authenticate
+    value: Application driven
+# secure management endpoints
+management:
+  security:
+    enabled: false
+security:
+  basic:
+    enabled: false
+hystrix.command.default.execution.timeout.enabled: false
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 990000
+# propagate application status to Eureka
+eureka:
+  client:
+    healthcheck:
+      enabled: true
+zuul:
+  ignoredServices: '*'
+  routes:
+    ocp-ui-api:
+      path: /ocp-ui-api/**
+      # Override Zuul default:
+      sensitiveHeaders: Cookie,Set-Cookie
+    ocp-ui:
+      path: /ocp-ui/**
+      sensitiveHeaders: ''
+      url: http://localhost:3000/
