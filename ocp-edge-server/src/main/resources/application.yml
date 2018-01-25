@@ -15,6 +15,7 @@ management:
 security:
   basic:
     enabled: false
+# Disable Hystrix timeout globally (for all services)
 hystrix.command.default.execution.timeout.enabled: false
 ribbon:
   ConnectTimeout: 30000
@@ -26,6 +27,9 @@ eureka:
       enabled: true
 zuul:
   ignoredServices: '*'
+  host:
+    connect-timeout-millis: 10000
+    socket-timeout-millis: 60000
   routes:
     ocp-ui-api:
       path: /ocp-ui-api/**
@@ -33,5 +37,9 @@ zuul:
       sensitiveHeaders: Cookie,Set-Cookie
     ocp-ui:
       path: /ocp-ui/**
+      sensitiveHeaders: ''
+      url: http://localhost:3000/
+    _hmr:
+      path: /__webpack_hmr
       sensitiveHeaders: ''
       url: http://localhost:3000/
