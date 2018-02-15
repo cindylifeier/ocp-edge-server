@@ -43,3 +43,7 @@ zuul:
       path: /__webpack_hmr
       sensitiveHeaders: ''
       url: http://localhost:3000/
+    uaa:
+      path: /uaa/**
+      sensitiveHeaders: ''
+      url: http://localhost:8080/uaa/
