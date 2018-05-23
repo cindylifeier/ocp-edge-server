@@ -35,6 +35,10 @@ zuul:
       path: /ocp-ui-api/**
       # Override Zuul default:
       sensitiveHeaders: Cookie,Set-Cookie
+    smart-gateway:
+      path: /smart/**
+      # Override Zuul default:
+      sensitiveHeaders: Cookie,Set-Cookie
     ocp-ui:
       path: /ocp-ui/**
       sensitiveHeaders: ''
