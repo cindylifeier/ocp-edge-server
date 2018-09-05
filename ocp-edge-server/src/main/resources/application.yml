@@ -47,3 +47,26 @@ zuul:
       path: /__webpack_hmr
       sensitiveHeaders: ''
       url: http://localhost:3000/
+---
+# updates configuration for docker environment
+spring.profiles: docker
+zuul:
+  routes:
+    ocp-ui:
+      path: /ocp-ui/**
+      sensitiveHeaders: ''
+      url: http://ocp-ui.ocp.com:3000/
+    _hmr:
+      path: /__webpack_hmr
+      sensitiveHeaders: ''
+      url: http://ocp-ui.ocp.com:3000/
+    guvnor:
+      path: /guvnor/**
+      url: http://guvnor.ocp.com:8080/guvnor
+    document-validator:
+      path: /document-validator/**
+      url: http://document-validator.ocp.com:8080/document-validator
+    dss:
+      path: /dss/**
+    vss:
+      path: /vss/**
